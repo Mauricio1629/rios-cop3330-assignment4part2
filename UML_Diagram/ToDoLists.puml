@@ -1,0 +1,86 @@
+@startuml
+
+class App{
+    main()
+    start()
+}
+
+class ToDoListController{
+    -ToDoList: ArrayList<List>
+    -toDoListDisplay: ListView
+    -itemDisplay: TableView
+    -descriptionCellDisplay: TableColumn
+    -dueDateCellDisplay: TableColumn
+    -completeCellDisplay: TableColumn
+    -EnterListNameDisplay: TextField
+    -EditListNameDisplay: TextField
+    -dueDateDisplay: TextField
+    -descriptionDisplay: TextArea
+    -editDescriptionDisplay: TextArea
+    -editDueDateDisplay: TextField
+    -pathInputDisplay: TextField
+    -completedItems: Checkbox
+    -uncompletedItems: Checkbox
+
+    +completedItemsCheckBoxClicked()
+    +uncompletedItemsCheckBoxClicked()
+    +addListButtonClicked()
+    +editListButtonClicked()
+    +addItemButtonClicked()
+    +searchItemsButtonClicked()
+    +viewSelectedListButtonClicked()
+    +deleteListButtonClicked()
+    +saveAllListsButtonClicked()
+    +loadAllListsButtonClicked()
+    +deleteItemButtonClicked()
+    +editItemClicked()
+    +itemClicked()
+    +toDoListClicked()
+    +completeButtonClicked()
+    +deleteAllItemsClicked()
+
+    +addList()
+    +editList()
+    +searchItems()
+    +viewLists()
+    +deleteList()
+    +saveAll()
+    +loadAll()
+    +deleteItem()
+    +editItem()
+    +changeCompletion()
+    +deleteItems()
+
+}
+
+
+class Item{
+    +completion: Boolean/Checkbox
+    +description: String
+    +dueDate: String
+
+    +getCompletion()
+    +setCompletion()
+    +getDescription()
+    +setDescription()
+    +getDueDate()
+    +setDueDate()
+    +toString();
+}
+
+class List{
+    +listName: String
+    +items: ArrayList<Item>
+
+    +getItems();
+    +setItems();
+    +toString();
+}
+
+org.javafx.ToDoListApplication -- App
+App -- ToDoListController
+List - Item
+ToDoListController - List
+
+
+@enduml
